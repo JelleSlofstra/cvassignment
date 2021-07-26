@@ -27,7 +27,7 @@ class Router {
             $classAndFunc = $this->stripFunctionName($this->routes[$requestType][$uri]);
 
             return [
-                'uri' => $classAndFunc['uri'],
+                'uri' => lcfirst($classAndFunc['uri']),
                 'function' => $classAndFunc['function'],
                 'class' => $classAndFunc['class'],
             ];

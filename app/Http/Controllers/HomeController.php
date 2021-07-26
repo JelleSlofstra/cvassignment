@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Libraries\View;
+use App\Libraries\MySql;
+use PDO;
+
 
 class HomeController {
 
     public function index()
     {
-        return View::render('home.view', [
-            'name' => 'My Name',
-            'nog_een_array' => [
-                'apple',
-                'banana',
-            ]
-        ]);
+        $statement = MySql::query('select * from users');
+
+        $results = $statement->fetchAll(PDO::FETCH_OBJ);
+
+        return View::render('home.view', $results);
     }
 }
