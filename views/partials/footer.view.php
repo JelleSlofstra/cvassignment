@@ -1,1 +1,1 @@
-<footer>Footer</footer>
+<footer>Made by: Jelle Slofstra</footer>

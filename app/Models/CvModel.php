@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Libraries\MySql;
+use PDO;
+
 class CvModel extends Model
 {
     // Name of the table
@@ -26,5 +29,17 @@ class CvModel extends Model
             $this->limit, 
             $this->guarded,
         );
+    }
+
+    public static function findUserInfo($user)
+    {
+        $statement = MySql::query("select * FROM `users` WHERE id = $user");
+        return  $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public static function findInfo($table, $user)
+    {
+        $statement = MySql::query("select * FROM `$table` WHERE user_id = $user");
+        return  $statement->fetchAll(PDO::FETCH_OBJ);
     }
 }

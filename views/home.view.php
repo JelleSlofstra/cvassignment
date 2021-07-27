@@ -13,7 +13,7 @@
     </p>
 
     <p>
-        Werkervaring
+        <h2>Werkervaring</h2>
         <ul>            
             <?php foreach($vars[1] as $job): ?>
                 <li>
@@ -31,7 +31,7 @@
     </p>
 
     <p>
-        Opleidingen
+        <h2>Opleidingen</h2>
         <ul>            
             <?php foreach($vars[2] as $education): ?>
                 <li>
@@ -49,7 +49,7 @@
     </p> 
 
     <p>
-        Vrijwilligerswerk
+        <h2>Vrijwilligerswerk</h2>
         <ul>            
             <?php foreach($vars[3] as $volunteerjob): ?>
                 <li>
@@ -67,6 +67,7 @@
     </p>
 
     <p>
+        <h2>Overig</h2>
         Skills:           
             <?php foreach($vars[4] as $skill): ?>
                 <?= $skill->name ?>, 
