@@ -5,17 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\UserModel;
 use App\Libraries\View;
 use App\Libraries\MySql;
+use App\Models\JobsModel;
 
 class UserController extends Controller
 {
 
     public function index()
     {
-        $userModel = new UserModel();
+        $user = UserModel::get(1);
+        $jobs = JobsModel::userJobs(1);
 
         View::render('users/index.view', [
-            'users' => $userModel::all(),
-            'foods' => 'Pannekoeken',
+            'users' => $user,
+            'jobs' => $jobs
         ]);
     }
 

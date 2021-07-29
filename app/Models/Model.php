@@ -34,11 +34,13 @@ class Model
     {
         $fields = "*";
         
-        if (!empty($selectedFields) && count($selectedFields) > 0) {
+        if (isset($selectedFields) && count($selectedFields) > 0) {
             $fields = self::composeQuery($selectedFields);
         }
 
         $sql = "SELECT " . $fields . " FROM " . self::$model . " WHERE deleted IS NULL" . (!empty(self::$limit) ? " LIMIT " . self::$limit : "");
+
+        dd($sql);
 
         return MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
     }
@@ -53,7 +55,7 @@ class Model
 
         $fields = "*";
 
-        if (count($selectedFields) > 0) {
+        if (isset($selectedFields) && count($selectedFields) > 0) {
             $fields = self::composeQuery($selectedFields);
         }
 

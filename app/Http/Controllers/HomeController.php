@@ -21,8 +21,22 @@ class HomeController {
         $skills = CvModel::findInfo('skills', 1);
         $hobbies = CvModel::findInfo('hobbies', 1);
 
-        $cv = [$userinfo, $jobs, $educations, $volunteerjobs, $skills, $hobbies];
+        // dd([
+        //     'user' => $userinfo,
+        //     'jobs' => $jobs,
+        //     'educations' => $educations,
+        //     'volunteerjobs' => $volunteerjobs,
+        //     'skills' => $skills,
+        //     'hobbies' => $hobbies
+        // ]);
 
-        return View::render('home.view', $cv);
+        return View::render('home.view', [
+            'user' => $userinfo,
+            'jobs' => $jobs,
+            'educations' => $educations,
+            'volunteerjobs' => $volunteerjobs,
+            'skills' => $skills,
+            'hobbies' => $hobbies
+        ]);
     }
 }
